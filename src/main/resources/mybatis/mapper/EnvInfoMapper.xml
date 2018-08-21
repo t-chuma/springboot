@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maocl.springboot.mapper.EnvInfoMapper">
+
+    <!-- type为实体类Student，包名已经配置，可以直接写类名 -->
+    <resultMap id="envInfoMap" type="com.maocl.springboot.entity.EnvInfo">
+        <result property="appId" column="appId" />
+        <result property="groupId" column="groupId" />
+        <result property="groupName" column="groupName" />
+        <result property="env" column="env" />
+        <result property="updateTime" column="updateTime" />
+    </resultMap>
+
+    <select id="getById" resultMap="envInfoMap" parameterType="java.lang.Integer" resultType="EnvInfo">
+        SELECT appId,groupId,groupName,env,updateTime
+        FROM tds_envinfo
+        WHERE id = #{id}
+    </select>
+
+</mapper>
