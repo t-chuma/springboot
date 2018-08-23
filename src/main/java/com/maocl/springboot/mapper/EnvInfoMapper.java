@@ -1,6 +1,7 @@
 package com.maocl.springboot.mapper;
 
 import com.maocl.springboot.config.mybatis.MyMapper;
+import com.maocl.springboot.datasource.MultiDataSource;
 import com.maocl.springboot.entity.EnvInfo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,6 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
+@MultiDataSource.DataSource("ds1")
 public interface EnvInfoMapper{
 
     EnvInfo getById(int id);

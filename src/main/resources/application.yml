@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    password: root
+    url: jdbc:mysql://10.33.22.27:3306/tdsdb
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    openMulti: true
+    type: com.zaxxer.hikari.HikariDataSource
+    idle-timeout: 30000
+    multi:
+    - key: ds1
+      password: root
+      url: jdbc:mysql://10.33.22.27:3306/report
+      idle-timeout: 20000
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      type: com.zaxxer.hikari.HikariDataSource
+    - key: ds2
+      password: root
+      url: jdbc:mysql://10.33.22.27:3306/resultcentor
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+mybatis:
+  type-aliases-package: com.maocl.springboot.entity
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
